@@ -25,7 +25,7 @@ class HomeController extends Controller
     public function index()
     {
         $categories = Category::all();
-        $open_status = Status::where('name', 'open')->first()->id;
+        $open_status = Status::where('name', 'open')->first()->id ?? null;
         $jobs = Job::where('status_id', $open_status)->latest()->paginate(15);
         return view('index', compact('categories', 'jobs', 'open_status'));
     }
