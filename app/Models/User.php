@@ -46,7 +46,7 @@ class User extends Authenticatable
         return $this->hasMany(JobApplication::class);
     }
 
-    public function password_check($password) {
+    public function passwordCheck($password) {
         return Hash::check($password, $this->attributes['password']);
     }
 }

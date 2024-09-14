@@ -140,7 +140,7 @@ class DashboardController extends Controller
             'old_password' => 'required|min:8',
             'password' => 'required|min:8|confirmed'
         ]);
-        if($user->password_check($request->old_password)) {
+        if($user->passwordCheck($request->old_password)) {
             $user->password = Hash::make($request->password);
             $user->save();
 
